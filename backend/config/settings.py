@@ -1,7 +1,7 @@
 import os
 from datetime import timedelta
 from pathlib import Path
-
+import dj_database_url
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -11,8 +11,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "dev-secret-key-change-me")
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,.onrender.com").split(",")
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+# DEBUG = False
+# ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -36,6 +38,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -59,10 +62,9 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    "default": dj_database_url.parse(
+        "postgresql://neondb_owner:npg_E0wn2zTQopAm@ep-empty-firefly-atmz74wf-pooler.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+    )
 }
 
 AUTH_PASSWORD_VALIDATORS = []
@@ -72,7 +74,8 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
