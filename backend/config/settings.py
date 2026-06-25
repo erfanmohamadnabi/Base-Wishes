@@ -103,5 +103,6 @@ SIMPLE_JWT = {
 # --- CORS --------------------------------------------------------------
 
 CORS_ALLOWED_ORIGINS = os.environ.get(
-    "CORS_ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173"
+    "CORS_ALLOWED_ORIGINS",
+    "http://localhost:5173,http://127.0.0.1:5173,https://basewishes.vercel.app"
 ).split(",")
