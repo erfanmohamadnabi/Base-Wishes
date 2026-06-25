@@ -1,3 +1,5 @@
+![Base Wishes Demo](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXp1dHUxdW9qYTRrZmc2MzZ3NzA1YXRzYTl5ZXRwOGU2dGlpMzExdyZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/bFmJ17Bqb3LQ0nBSV7/giphy.gif)
+
 # Base Wishes
 
 Base Wishes is a simple on-chain social dApp built on Base.
