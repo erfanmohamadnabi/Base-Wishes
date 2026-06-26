@@ -14,6 +14,10 @@ export default function App() {
         <Route path="/add" element={<AddNote />} />
         <Route path="/profile/:id" element={<Profile />} />
       </Routes>
+      {/* footer */}
+      <footer className="footer">
+        <p> Built by <a href="https://x.com/0xWeb3legend" target="_blank" rel="noreferrer">Web3legend</a></p>
+      </footer>
     </div>
   );
 }

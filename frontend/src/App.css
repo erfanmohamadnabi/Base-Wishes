@@ -449,6 +449,31 @@
   margin: 8px 0 14px;
 }
 
+
+
+/* footer */
+
+.footer {
+  background-color: #0e0e16;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto;
+  border-top: 1px solid #3f3f3f;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer a{
+  color: var(--accent-strong);
+}
+
+
+
+
 @media (max-width: 560px) {
   .navbar {
     padding: 14px 16px;
